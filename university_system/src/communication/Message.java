@@ -7,10 +7,8 @@ import java.util.*;
 import users.*;
 
 
-/**
- * Represents a message sent between users/employees in the university system.
- * Any employee can send a message to any other employee.
- */
+
+ 
 public class Message implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -22,13 +20,7 @@ public class Message implements Serializable {
     private String text;
     private Date date;
 
-    // ─── Constructors ─────────────────────────────────────────────────────────
-
-//    public Message() {
-//        this.messageId = UUID.randomUUID().toString();
-//        this.sentAt = LocalDateTime.now();
-//        this.isRead = false;
-//    }
+ 
 
     public Message(String text, User s, User r, Date d) {
         this.sender = s;
@@ -37,41 +29,7 @@ public class Message implements Serializable {
         this.date = d;
     }
 
-    // ─── Methods ──────────────────────────────────────────────────────────────
-
-//    public void markAsRead() {
-//        this.isRead = true;
-//    }
-//
-//    // ─── Utility ─────────────────────────────────────────────────────────────
-//
-//    @Override
-//    public String toString() {
-//        return "Message{" +
-//                "messageId='" + messageId + '\'' +
-//                ", from='" + senderId + '\'' +
-//                ", to='" + receiverId + '\'' +
-//                ", subject='" + subject + '\'' +
-//                ", sentAt=" + sentAt +
-//                ", isRead=" + isRead +
-//                '}';
-//    }
-//
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (!(o instanceof Message)) return false;
-//        Message message = (Message) o;
-//        return Objects.equals(messageId, message.messageId);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(messageId);
-//    }
-
-    // ─── Getters & Setters ────────────────────────────────────────────────────
-
+   
   
     public User getSender() { return sender; }
     public void setSenderId(User senderId) { this.sender = senderId; }

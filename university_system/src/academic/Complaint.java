@@ -35,5 +35,5 @@ public class Complaint {
     @Override
     public String toString() {
         return "Complaint{text='" + text + "', urgency=" + urgency + "}";
-    }
+    }// removed extra field
 }

@@ -1,6 +1,6 @@
 package employees;
 import enums.Language;
-import users.*;
+import users.*; // imported users
 
 public class Employee extends User {
 
