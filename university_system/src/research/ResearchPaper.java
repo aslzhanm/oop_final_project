@@ -2,74 +2,42 @@ package research;
 
 import enums.CitationFormat;
 
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.*;
 
-/**
- * Represents an academic research paper in the university system.
- * Fields inspired by: "LMS Logs and Student Performance: The Influence of Retaking a Course"
- */
+
 public class ResearchPaper implements Serializable, Comparable<ResearchPaper> {
 
     private static final long serialVersionUID = 1L;
 
     // ─── Fields ───────────────────────────────────────────────────────────────
 
-    private String title;
-    private List<String> authors;   // list of author names
-    private String journal;
+
     private int pages;              // number of pages (used for "article length" sort)
-    private LocalDate datePublished;
+    private Date publishDate; // corected name (cap)
     private String doi;
     private int citations;
+    private String title;
 
-    // ─── Constructors ─────────────────────────────────────────────────────────
-
-    public ResearchPaper() {
-        this.authors = new ArrayList<>();
-    }
-
+ 
     public ResearchPaper(String title, List<String> authors, String journal,
-                         int pages, LocalDate datePublished, String doi) {
+                         int pages, Date datePublished, String doi) {
         this.title = title;
-        this.authors = authors != null ? authors : new ArrayList<>();
-        this.journal = journal;
+
         this.pages = pages;
-        this.datePublished = datePublished;
+        this.publishDate = datePublished;
         this.doi = doi;
         this.citations = 0;
     }
 
-    // ─── Citation Formatting ─────────────────────────────────────────────────
-
-    /**
-     * Returns a citation string in the requested format.
-     *
-     * @param format CitationFormat.PLAIN_TEXT or CitationFormat.BIBTEX
-     */
+   
     public String getCitation(CitationFormat format) {
-        if (format == CitationFormat.BIBTEX) {
-            // BibTeX format
-            String key = (authors.isEmpty() ? "unknown" : authors.get(0).split(" ")[0].toLowerCase())
-                    + (datePublished != null ? datePublished.getYear() : "0000");
-            return "@article{" + key + ",\n" +
-                    "  title={" + title + "},\n" +
-                    "  author={" + String.join(" and ", authors) + "},\n" +
-                    "  journal={" + journal + "},\n" +
-                    "  pages={" + pages + "},\n" +
-                    "  year={" + (datePublished != null ? datePublished.getYear() : "N/A") + "},\n" +
-                    "  doi={" + doi + "}\n" +
-                    "}";
-        } else {
-            // Plain Text format
-            return String.join(", ", authors) + ". (" +
-                    (datePublished != null ? datePublished.getYear() : "N/A") + "). " +
-                    title + ". " + journal + ". " +
-                    "Pages: " + pages + ". DOI: " + doi;
-        }
+    	return "ok";
     }
 
     // ─── Comparable ───────────────────────────────────────────────────────────
@@ -86,10 +54,8 @@ public class ResearchPaper implements Serializable, Comparable<ResearchPaper> {
     public String toString() {
         return "ResearchPaper{" +
                 "title='" + title + '\'' +
-                ", authors=" + authors +
-                ", journal='" + journal + '\'' +
                 ", pages=" + pages +
-                ", datePublished=" + datePublished +
+                ", datePublished=" + publishDate +
                 ", doi='" + doi + '\'' +
                 ", citations=" + citations +
                 '}';
@@ -113,17 +79,11 @@ public class ResearchPaper implements Serializable, Comparable<ResearchPaper> {
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
 
-    public List<String> getAuthors() { return authors; }
-    public void setAuthors(List<String> authors) { this.authors = authors; }
-
-    public String getJournal() { return journal; }
-    public void setJournal(String journal) { this.journal = journal; }
-
     public int getPages() { return pages; }
     public void setPages(int pages) { this.pages = pages; }
 
-    public LocalDate getDatePublished() { return datePublished; }
-    public void setDatePublished(LocalDate datePublished) { this.datePublished = datePublished; }
+    public Date getDatePublished() { return publishDate; }
+    public void setDatePublished(Date datePublished) { this.publishDate = datePublished; }
 
     public String getDoi() { return doi; }
     public void setDoi(String doi) { this.doi = doi; }

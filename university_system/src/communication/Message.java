@@ -3,7 +3,9 @@ package communication;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
+import users.*;
+
 
 /**
  * Represents a message sent between users/employees in the university system.
@@ -15,85 +17,73 @@ public class Message implements Serializable {
 
     // ─── Fields ───────────────────────────────────────────────────────────────
 
-    private String messageId;
-    private String senderId;      // ID of the sender (User)
-    private String receiverId;    // ID of the receiver (User)
-    private String subject;
-    private String content;
-    private LocalDateTime sentAt;
-    private boolean isRead;
+    private User sender;      
+    private User receiver;    
+    private String text;
+    private Date date;
 
     // ─── Constructors ─────────────────────────────────────────────────────────
 
-    public Message() {
-        this.messageId = UUID.randomUUID().toString();
-        this.sentAt = LocalDateTime.now();
-        this.isRead = false;
-    }
+//    public Message() {
+//        this.messageId = UUID.randomUUID().toString();
+//        this.sentAt = LocalDateTime.now();
+//        this.isRead = false;
+//    }
 
-    public Message(String senderId, String receiverId, String subject, String content) {
-        this.messageId = UUID.randomUUID().toString();
-        this.senderId = senderId;
-        this.receiverId = receiverId;
-        this.subject = subject;
-        this.content = content;
-        this.sentAt = LocalDateTime.now();
-        this.isRead = false;
+    public Message(String text, User s, User r, Date d) {
+        this.sender = s;
+        this.receiver = r;
+        this.text = text;
+        this.date = d;
     }
 
     // ─── Methods ──────────────────────────────────────────────────────────────
 
-    public void markAsRead() {
-        this.isRead = true;
-    }
-
-    // ─── Utility ─────────────────────────────────────────────────────────────
-
-    @Override
-    public String toString() {
-        return "Message{" +
-                "messageId='" + messageId + '\'' +
-                ", from='" + senderId + '\'' +
-                ", to='" + receiverId + '\'' +
-                ", subject='" + subject + '\'' +
-                ", sentAt=" + sentAt +
-                ", isRead=" + isRead +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Message)) return false;
-        Message message = (Message) o;
-        return Objects.equals(messageId, message.messageId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(messageId);
-    }
+//    public void markAsRead() {
+//        this.isRead = true;
+//    }
+//
+//    // ─── Utility ─────────────────────────────────────────────────────────────
+//
+//    @Override
+//    public String toString() {
+//        return "Message{" +
+//                "messageId='" + messageId + '\'' +
+//                ", from='" + senderId + '\'' +
+//                ", to='" + receiverId + '\'' +
+//                ", subject='" + subject + '\'' +
+//                ", sentAt=" + sentAt +
+//                ", isRead=" + isRead +
+//                '}';
+//    }
+//
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (!(o instanceof Message)) return false;
+//        Message message = (Message) o;
+//        return Objects.equals(messageId, message.messageId);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(messageId);
+//    }
 
     // ─── Getters & Setters ────────────────────────────────────────────────────
 
-    public String getMessageId() { return messageId; }
-    public void setMessageId(String messageId) { this.messageId = messageId; }
+  
+    public User getSender() { return sender; }
+    public void setSenderId(User senderId) { this.sender = senderId; }
 
-    public String getSenderId() { return senderId; }
-    public void setSenderId(String senderId) { this.senderId = senderId; }
+    public User getReceiver() { return receiver; }
+    public void setReceiver(User receiverId) { this.receiver = receiverId; }
 
-    public String getReceiverId() { return receiverId; }
-    public void setReceiverId(String receiverId) { this.receiverId = receiverId; }
+    public String getText() { return text; }
+    public void setText(String subject) { this.text = subject; }
 
-    public String getSubject() { return subject; }
-    public void setSubject(String subject) { this.subject = subject; }
+    public Date getDate() { return date; }
+    public void setSentAt(Date sentAt) { this.date = sentAt; }
 
-    public String getContent() { return content; }
-    public void setContent(String content) { this.content = content; }
 
-    public LocalDateTime getSentAt() { return sentAt; }
-    public void setSentAt(LocalDateTime sentAt) { this.sentAt = sentAt; }
-
-    public boolean isRead() { return isRead; }
-    public void setRead(boolean read) { isRead = read; }
 }

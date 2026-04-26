@@ -5,26 +5,17 @@ import java.util.List;
 
 public class Transcript {
 
-    private String studentId;
+	
     private List<Mark> marks = new ArrayList<>();
 
     public Transcript() {}
 
-    public Transcript(String studentId) {
-        this.studentId = studentId;
+  
+    // added generate pdf
+    public void generatePDF() {
+        System.out.println("done");
     }
-
-    public void addMark(Mark mark) {
-        marks.add(mark);
-    }
-
-    public String getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
-    }
+    
 
     public List<Mark> getMarks() {
         return marks;
@@ -36,6 +27,6 @@ public class Transcript {
 
     @Override
     public String toString() {
-        return "Transcript{studentId='" + studentId + "', marks=" + marks + "}";
+        return "marks: " + marks;
     }
 }

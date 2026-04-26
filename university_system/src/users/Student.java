@@ -1,6 +1,7 @@
 package users;
 
 import academic.Course;
+
 import academic.Mark;
 import employees.Teacher;
 import enums.Language;
@@ -36,14 +37,7 @@ public class Student extends User {
 
     public void registerForCourse(Course course) {
         System.out.println("registerForCourse called");
-
-        if (checkCreditLimit(course) && checkFailedCoursesLimit()) {
-            registeredCourses.add(course);
-            totalCredits += course.getCredits();
-            System.out.println("Course registered successfully");
-        } else {
-            System.out.println("Cannot register for course");
-        }
+//        removed logic
     }
 
     public boolean checkCreditLimit(Course course) {
@@ -70,6 +64,16 @@ public class Student extends User {
         System.out.println("viewTranscript called");
         return new ArrayList<>();
     }
+    
+    
+//    added rate teacher
+    public void rateTeacher(Teacher t, int r) {
+        System.out.println("teacher rated");
+    }
+    
+    
+    
+    
 
     public String getStudentId() {
         return studentId;

@@ -7,14 +7,12 @@ public class Complaint {
 
     private String text;
     private UrgencyLevel urgency;
-    private RequestStatus status;
 
     public Complaint() {}
 
-    public Complaint(String text, UrgencyLevel urgency, RequestStatus status) {
+    public Complaint(String text, UrgencyLevel urgency) {
         this.text = text;
         this.urgency = urgency;
-        this.status = status;
     }
 
     public String getText() {
@@ -33,16 +31,9 @@ public class Complaint {
         this.urgency = urgency;
     }
 
-    public RequestStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(RequestStatus status) {
-        this.status = status;
-    }
-
+    
     @Override
     public String toString() {
-        return "Complaint{text='" + text + "', urgency=" + urgency + ", status=" + status + "}";
+        return "Complaint{text='" + text + "', urgency=" + urgency + "}";
     }
 }

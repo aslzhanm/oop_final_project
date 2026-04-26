@@ -1,8 +1,8 @@
 package enums;
 
 public enum TeacherPosition {
-    ASSISTANT,
-    LECTURER,
-    SENIOR_LECTURER,
+	TUTOR,
+	LECTOR,
+	SENIOR_LECTOR,
     PROFESSOR
 }

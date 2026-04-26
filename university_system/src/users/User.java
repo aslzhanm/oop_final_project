@@ -26,6 +26,20 @@ public class User {
         System.out.println("signIn called");
         return this.username.equals(username) && this.password.equals(password);
     }
+    
+    
+    
+//    added sign out and switch language
+    public void signOut() { 
+        System.out.println("signOut called");
+    }
+    
+    public void switchLanguage(Language l) {
+    	this.language = l;
+    }
+    
+    
+    
 
     public void viewNews() {
         System.out.println("viewNews called");

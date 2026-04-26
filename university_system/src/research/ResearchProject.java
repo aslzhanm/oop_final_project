@@ -42,10 +42,11 @@ public class ResearchProject implements Serializable {
      * (Called internally by Researcher.joinProject — but also usable directly.)
      */
     public void addParticipant(Researcher researcher) {
-        if (!participants.contains(researcher)) {
-            participants.add(researcher);
-            System.out.println("Researcher added to project: " + topic);
-        }
+//        if (!participants.contains(researcher)) {
+//            participants.add(researcher);
+//            System.out.println("Researcher added to project: " + topic);
+//        }
+        System.out.println("added");
     }
 
     /**

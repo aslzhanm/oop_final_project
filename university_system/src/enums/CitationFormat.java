@@ -1,7 +1,6 @@
 package enums;
 
-public enum CitationFormat {
-    APA,
-    MLA,
-    IEEE
+public enum CitationFormat { 
+	PLAIN_TEXT,
+	BIBTEX
 }

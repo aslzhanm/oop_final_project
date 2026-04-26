@@ -1,25 +1,31 @@
 package academic;
 
 import enums.LessonType;
+import java.util.*;
 
 public class Lesson {
 
-    private String title;
+    private String topic; // corrected to topic
     private LessonType type;
+    // added lesson id, date
+    private String lessonId;
+    private Date date;
 
     public Lesson() {}
 
-    public Lesson(String title, LessonType type) {
-        this.title = title;
+    public Lesson(String title, LessonType type, String li, Date d) {
+        this.topic = title;
         this.type = type;
+        this.date = d;
+        this.lessonId = li;
     }
 
     public String getTitle() {
-        return title;
+        return topic;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.topic = title;
     }
 
     public LessonType getType() {
@@ -32,6 +38,6 @@ public class Lesson {
 
     @Override
     public String toString() {
-        return "Lesson{title='" + title + "', type=" + type + "}";
+        return "Lesson{title='" + topic + "', type=" + type + "}";
     }
 }
